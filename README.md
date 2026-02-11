@@ -1,7 +1,7 @@
 # Back-End: Node.js + Express Api
 
 server.js
-
+```
 const express = require('express');
 const core = require('cors')
 const app = express();
@@ -43,6 +43,20 @@ app.put('/api/hobbies/:id/toggle', (req, res) => {
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
+```
+
+
+
+
+
+
+# Front-End Dockerfile
+(frontend/Dockerfile)
+
+`FROM
+
+
+
 
 
 
@@ -59,6 +73,8 @@ app.listen(port, () => {
     build: ./frontend
     ports:
       - "5000:4000"
+    depends_on: 
+     - backend 
 ```
 
 
