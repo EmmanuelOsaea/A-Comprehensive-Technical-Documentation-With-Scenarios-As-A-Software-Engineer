@@ -7,6 +7,41 @@ const core = require('cors')
 const app = express();
 const port = 8000;
 
+app.use(cors());
+app.use(express.json());
+
+let hobbies = [
+{ id: 1, title: 'Read Novels', completed: false },
+{ id: 2, title: 'Bake Cakes', completed: false },
+];
+
+// Get all hobbies 
+app.get('api/hobbies', (req, res) => {
+ res.json(hobbies);
+});
+
+
+// Add a new hobby
+app.post('/api/hobbies', (req, res) => {j
+const { title }  = req.body;
+if (!title) return res.status(404).json({ error: 'Title is required' });
+const newHobby = { id: hobbies.length + 1, title, completed: false };
+hobbies.push(newHobby);
+res.status().json(newHobby);
+});
+
+// Toggle hobby completion
+app.put('/api/hobbies/:id/toggle', (req, res) => {
+ const id = parseInt(req.params.id);
+ 
+
+
+
+
+
+
+
+
 
 
 
