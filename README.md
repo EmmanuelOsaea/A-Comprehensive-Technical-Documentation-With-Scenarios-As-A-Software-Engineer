@@ -36,3 +36,19 @@ return (
 
 export default UserProfile;
 ```
+
+# Example: Express.js API Endpoint 
+const express = require('express');
+const app = express();
+
+app.get('/api/users/:id', async (req, res) => {
+const userId = req.params.id;
+// Simulate database fetch
+const user = await getUserFromDatabase(userId);
+if (!user) return res.status(404).json({ error: 'User not detected' })
+res.json(user);
+});
+
+function getUserFromDatabase(id) {
+
+return Promise.resolve({id, name: 'Yale', email: Yaled2269@gmail.com
