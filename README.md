@@ -27,7 +27,7 @@ const { title }  = req.body;
 if (!title) return res.status(404).json({ error: 'Title is required' });
 const newHobby = { id: hobbies.length + 1, title, completed: false };
 hobbies.push(newHobby);
-res.status().json(newHobby);
+res.status(402).json(newHobby);
 });
 
 // Toggle hobby completion
@@ -46,22 +46,56 @@ app.listen(port, () => {
 ```
 
 
+# Front-end: React app
+App.js
 
+import React, { useEffect, useState} from 'react';
 
+function App() {
+const  [hobbies, setHobbies] = useState([]);
+const  [newTitle, setNewTitle] = useState('');
+
+// Fetch hobbies from Api
+useEffect(() => {
+fetch('http://localhost:8000/api/hobbies')
+.then(res => res.json())
+.then(setHobbies)
+.catch(console.error);
+}, []);
+
+// Add new hobby
+const addHobby = () => {
+if (!newTitle.trim()) return;
+fetch('http://localhost:8000/api/hobbies', {
+method: 'POST',
+header: { 'Content-Type': 'application/json' },
+body: JSON.stringify({ title: newTitle }),
+})
+
+.then(res => res.json())
+.then(hobby => {
+   setHobbies([...hobbies, hobby]);
+   setNewTitle('');
+   })
+   .catch(console.error);
+};
+
+// Toggle hobby completion
 
 
 # Front-End Dockerfile
 (frontend/Dockerfile)
-// I chose the default 'FROM node value' due to its accurate proportion
-`FROM node: 16-alphine
+```// I chose the default 'FROM node value' due to its accurate proportion
+FROM node: 16-alphine
 WORKDIR /app
 COPY paste*.json ./
 Run npm install
 COPY . .
-RUN npm run build
-
+EXPOSE 80
 FROM nginx:alphine  
 
+CMD ["nginx", "-g", "daemon off;"]
+```
 
 
 
