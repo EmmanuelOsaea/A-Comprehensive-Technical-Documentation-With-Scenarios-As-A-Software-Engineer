@@ -52,3 +52,4 @@ res.json(user);
 function getUserFromDatabase(id) {
 
 return Promise.resolve({id, name: 'Yale', email: Yaled2269@gmail.com
+}
