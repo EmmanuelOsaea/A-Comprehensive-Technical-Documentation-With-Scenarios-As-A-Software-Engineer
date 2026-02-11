@@ -52,8 +52,8 @@ app.listen(port, () => {
 
 # Front-End Dockerfile
 (frontend/Dockerfile)
-// I chose the default 'FROM node value' due to its accurate proportionality
-`FROM node: 
+// I chose the default 'FROM node value' due to its accurate proportion
+`FROM node: 16-alphine
 WORKDIR /app
 COPY paste*.json ./
 Run npm install
