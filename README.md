@@ -2,10 +2,10 @@
 
 server.js
 
-
-
-
-
+const express = require('express');
+const core = require('cors')
+const app = express();
+const port = 8000;
 
 
 
@@ -14,7 +14,15 @@ server.js
  docker-compose.yml
 
  ```version: '3'
-
+   services:
+    backend: 
+    build: ./backend
+    ports: 
+      - "8000:8000"
+    frontend:
+    build: ./frontend
+    ports:
+      - "5000:4000"
 
 
 
