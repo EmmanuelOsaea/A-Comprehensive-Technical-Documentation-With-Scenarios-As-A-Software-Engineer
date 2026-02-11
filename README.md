@@ -1,3 +1,23 @@
+# Back-End: Node.js + Express Api
+
+server.js
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Example: React Component with API Integration 
 
 ```import React,  { useEffect, useState } from 'react';
@@ -38,6 +58,7 @@ export default UserProfile;
 ```
 
 # Example: Express.js API Endpoint 
+```
 const express = require('express');
 const app = express();
 
@@ -50,6 +71,12 @@ res.json(user);
 });
 
 function getUserFromDatabase(id) {
-
-return Promise.resolve({id, name: 'Yale', email: Yaled2269@gmail.com
+// Mock database call
+return Promise.resolve({id, name: 'Yale', email: 'Yaled2269@gmail.com' password: 'Sqeshb#*#5W;!?'
 }
+
+app.listen(4000, () => {
+ console.log('Server running on port 4000');
+ });
+ ```
+
