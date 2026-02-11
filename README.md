@@ -33,15 +33,16 @@ res.status().json(newHobby);
 // Toggle hobby completion
 app.put('/api/hobbies/:id/toggle', (req, res) => {
  const id = parseInt(req.params.id);
+ const hobby = hobbies.find(t => t.id == id);
+ if (!hobby) return res.status(404).json({ error: 'Hobby not detected' });
+ hobby.completed = !hobby.completed;
+ res.json(hobby);
+ });
+
  
-
-
-
-
-
-
-
-
+app.listen(port, () => {
+  console.log(`Server running on http://localhost:${port}`);
+});
 
 
 
@@ -58,7 +59,7 @@ app.put('/api/hobbies/:id/toggle', (req, res) => {
     build: ./frontend
     ports:
       - "5000:4000"
-
+```
 
 
 # Example: React Component with API Integration 
