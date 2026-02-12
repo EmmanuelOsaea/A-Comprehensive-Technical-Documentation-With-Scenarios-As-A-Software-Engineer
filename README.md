@@ -22,7 +22,7 @@ app.get('api/hobbies', (req, res) => {
 
 
 // Add a new hobby
-app.post('/api/hobbies', (req, res) => {j
+app.post('/api/hobbies', (req, res) => {
 const { title }  = req.body;
 if (!title) return res.status(404).json({ error: 'Title is required' });
 const newHobby = { id: hobbies.length + 1, title, completed: false };
@@ -136,9 +136,6 @@ COPY . .
 EXPOSE 8000
 CMD ["node", "server.js"]
  ```
- 
- 
- 
  
  
  # Front-End Dockerfile
