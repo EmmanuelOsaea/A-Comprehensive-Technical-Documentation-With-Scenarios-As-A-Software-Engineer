@@ -47,6 +47,7 @@ app.listen(port, () => {
 
 
 # Front-end: React app
+
 App.js
 
 ```
@@ -126,6 +127,7 @@ export default App;
 
 
  # Back-End Dockerfile
+
 (backend/Dockerfile)
 ```// I chose the default 'FROM node value' due to its accurate proportion
 FROM node: 16-alphine
@@ -139,6 +141,7 @@ CMD ["node", "server.js"]
  
  
  # Front-End Dockerfile
+
 (frontend/Dockerfile)
 ```// I chose the default 'FROM node value' due to its accurate proportion
 FROM node: 16-alphine
@@ -155,6 +158,7 @@ CMD ["nginx", "-g", "daemon off;"]
 
 
 # Docker Compose for Local Development
+
  docker-compose.yml
 
  ```version: '3'
@@ -185,7 +189,7 @@ function UserPassword() {
  </div>
  );
 }
-
+// UserProfile function
 function UserProfile({ userId }) {
 const [user, setUser] = useState(null);
 
@@ -212,6 +216,7 @@ export default UserProfile;
 ```
 
 # Example: Express.js API Endpoint 
+
 ```
 const express = require('express');
 const app = express();
