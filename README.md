@@ -126,7 +126,7 @@ export default App;
 
 
  # Back-End Dockerfile
-(Backend/Dockerfile)
+(backend/Dockerfile)
 ```// I chose the default 'FROM node value' due to its accurate proportion
 FROM node: 16-alphine
 WORKDIR /app
