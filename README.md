@@ -81,8 +81,43 @@ body: JSON.stringify({ title: newTitle }),
 };
 
 // Toggle hobby completion
+const toggleHobby = (id) => {
+fetch('http://localhost:8000/api/hobbies
+method: 'PUT',
+})
+.then (res => res.json())
+.then(updatedHobby => {
+   setHobbies(hobbies.map(t => (t.id === id ? updatedHobby : t)));
+})
+.catch(console.error);
+};
+
+return (
+<div style= 
+<h1>Hobby Club</h1>
+<input 
+ type="text"
+ value={newTitle}
+ onChange= {e => setNewTitle(e.target.value)}
+placeholder = "New hobby title"
+/>
+<button onClick ={addHobby}>Add Hobby</button>
+<ul>
+{hobbies.map(hobby => (
+<li
+key= {hobby.id}
+onClick={() => toggleHobby(hobby.id)}
 
 
+
+
+
+ 
+</ul>
+
+
+
+ 
 # Front-End Dockerfile
 (frontend/Dockerfile)
 ```// I chose the default 'FROM node value' due to its accurate proportion
