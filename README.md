@@ -95,7 +95,7 @@ method: 'PUT',
 };
 
 return (
-<div style= 
+<div style={{ maxWidth: 605,  margin: 'auto', padding: 25 }}>
 <h1>Hobby Club</h1>
 <input 
  type="text"
